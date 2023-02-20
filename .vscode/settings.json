@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "solong.h": "c",
+        "libft.h": "c",
+        "__config": "c"
+    }
+}
