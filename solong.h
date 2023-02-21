@@ -15,7 +15,7 @@ void permetre(int num_rows, int num_col, char **splited);
 void errortext(int error);
 void permetre(int num_rows, int num_col, char **splited);
 void errortextprint(int error);
-void errorcases(int error, char **splited , int num_rows, int num_col);
+//void errorcases(int error, char **splited , int num_rows, int num_col);
 
     typedef struct s_mymap
 {
@@ -33,6 +33,8 @@ void errorcases(int error, char **splited , int num_rows, int num_col);
     int check_jnab_2;
     size_t len_map;
     int counter;
+    int e_found;
+    int p_found;
     char **splited;
 
 } t_mymap;
