@@ -17,8 +17,7 @@ void errortextprint(int error)
 
 int main(int argc, char *argv[])
 {
-  bool imposter_found = false;
-  bool error_found = false;
+ 
 
   // bool printed_message = false;
   char *map1;
@@ -46,49 +45,62 @@ int main(int argc, char *argv[])
 
     permetre(mymap.num_rows, mymap.num_col, mymap.splited);
 
-    int i = 0;
-    int j = 0;
-    mymap.e_found = 0;
-    mymap.p_found = 0;
+int i = 0;
+int j = 0;
+ //int imposter_found = 0;
+ int error_count = 0;
+//int error_printed[4] = {0}; // initialize array to 0
 
-    while (i < mymap.num_rows)
-    {
-      j = 0;
-      while (j < mymap.num_col)
-      {
-
-        if ((mymap.splited[i][j] != '1') && (mymap.splited[i][j] != '0') && (mymap.splited[i][j] != 'E') && (mymap.splited[i][j] != 'C') && (mymap.splited[i][j] != 'P'))
-        {
-
-          printf("character|%c| is imposter \n", mymap.splited[i][j]);
-          imposter_found = true;
-        }
-        if (mymap.splited[i][j] == 'P')
-          mymap.p_found++;
-        if (mymap.splited[i][j] == 'E')
-          mymap.e_found++;
-        if (mymap.e_found + mymap.p_found > 2)
-        {
-          if (!error_found)
-          {
-            errortextprint(2);
-            error_found = true;
-           
-          }
-        }
-          if (ft_isascii(mymap.splited[i][j]) == 0)
-          {
-            errortextprint(3);
-          }
-          j++;
-      }
-        i++;
-      }
-  }
-
-      // errorcases(mymap.errorI,mymap.splited,mymap.num_rows,mymap.num_col);
-      //  errorcases(mymap.errorI,mymap.splited);
-      //  errorcases(mymap.errorI,mymap.splited);
-      //  errorcases(mymap.errorI,mymap.splited);
+while (i < mymap.num_rows) {
+  j = 0;
+  while (j < mymap.num_col) {
+    if ((mymap.splited[i][j] == 'P') ||(mymap.splited[i][j] == 'E')) {
+      mymap.p_found++;
+      //  printf("|%d|\n",mymap.p_found);
+      mymap.e_found++;
+      // printf("||%d||\n",mymap.e_found);
+      
+    
+      if (mymap.e_found + mymap.p_found >2) {
+     
+        errortextprint(2);
+        error_count++;
+        break;
+      } 
     }
+    j++;
+}
+i++;
+} 
+
+// while (i < mymap.num_rows) {
+//   j = 0;
+
+//   while (j < mymap.num_col) {
+//     if ((mymap.splited[i][j] != '1') && (mymap.splited[i][j] != '0') && (mymap.splited[i][j] != 'E') && (mymap.splited[i][j] != 'C') && (mymap.splited[i][j] != 'P')) {
+//         printf("character|%c| is imposter \n", mymap.splited[i][j]);
+   
+//         imposter_found = 1;
+//         error_printed[0] = 1;
+//         error_count++;
+//     }
   
+    
+     
+     
+//       j++;
+//   }
+// i++;
+// }
+//   if (error_count == 0 && !imposter_found) {
+//   printf("No errors found.\n");
+// }
+
+
+
+
+
+   
+  }
+}
+
