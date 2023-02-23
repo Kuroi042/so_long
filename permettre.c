@@ -30,10 +30,6 @@ void permetre(int num_rows, int num_col, char **splited)
         }
         mymap.r++;
     }
-    // printf("mymap.check_jnab_2 %d \n", mymap.check_jnab_2);
-    // printf("mymap.check_jnab_1 %d\n", mymap.check_jnab_1);
-    // printf("mymap.check_tool %d\n", mymap.check_tool);
-    // printf("mymap.check_tool_tethd %d\n", mymap.check_tool_teht);
     if (mymap.check_jnab_1 != 0 || mymap.check_jnab_2 != 0 || mymap.check_tool != 0 || mymap.check_tool_teht != 0)
     {
         printf("The perimetre is not set\n");
