@@ -1,7 +1,5 @@
 
 #include "solong.h"
-t_mymap mymap;
-int counter = 0;
 void imposter( char **splited, int   num_rows,int   num_col)
 {
     int i = 0;
@@ -47,25 +45,12 @@ void checkdupPE(int num_col, int num_rows, char **splited)
         i++;
     }
 }
-void checkasccimap(char **splited, int num_rows, int num_col)
+void openber(int fd)
 {
-    int i = 0;
-    int j = 0;
-    while (i < num_rows)
-    {
-        j = 0;
-        while (j < num_col)
-        {
-           
-                if (ft_isascii(splited[i][j]) == 0)
-                {
-                    printf("map is not ascci\n");
-                    break;
-                
-                }
-        
-            j++;
-        }
-        i++;
-    }
+
+  if(fd == -1){
+    printf("open error");
+    exit(1);
+  }
 }
+

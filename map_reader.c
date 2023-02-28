@@ -1,6 +1,4 @@
 #include "solong.h"
-#include <stdbool.h>
-
 t_mymap mymap;
 // bool printed_message = false;
 void errortextprint(int error)
@@ -19,10 +17,10 @@ int main(int argc, char *argv[])
 {
   char *map1;
   char *map_str; // map_str ghadi doz f get_next_line
-  mymap.errorI = 0;
   if (argc == 2)
   {
     int fd = open(argv[1], O_RDONLY);
+    openber(fd);
     map_str = get_next_line(fd);
     size_t len = ft_strlen(map_str);
     map1 = ft_calloc(len, 1);
@@ -40,9 +38,8 @@ int main(int argc, char *argv[])
       mymap.num_rows++;                           // rows = 0 inrements to 1234
     }
   permetre(mymap.num_rows, mymap.num_col, mymap.splited);
-   checkasccimap(mymap.splited,  mymap.num_rows, mymap.num_col);
   imposter( mymap.splited,  mymap.num_rows, mymap.num_col);
-   checkdupPE( mymap.num_col,  mymap.num_rows, mymap.splited);
+  checkdupPE( mymap.num_col,  mymap.num_rows, mymap.splited);
 
   }
 }

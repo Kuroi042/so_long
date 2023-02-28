@@ -15,9 +15,9 @@ void permetre(int num_rows, int num_col, char **splited);
 void errortext(int error);
 void permetre(int num_rows, int num_col, char **splited);
 void checkdupPE(int num_col, int num_rows, char **splited);
+void openber(int fd);
 void errortextprint(int error);
-void checkasccimap(char **splited, int num_rows, int num_col);
-void berber(char *str);
+// void berber(char *str);
 void imposter( char **splited, int num_rows, int num_col);
 
 
