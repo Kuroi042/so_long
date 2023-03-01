@@ -1,7 +1,7 @@
 #ifndef SOLONG_H
 
 #define SOLONG_H
-
+#include <mlx.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
-#include <mlx.h>
+
 
 void permetre(int num_rows, int num_col, char **splited);
 void errortext(int error);
@@ -19,6 +19,8 @@ void openber(int fd);
 void errortextprint(int error);
 // void berber(char *str);
 void imposter( char **splited, int num_rows, int num_col);
+void mapdrwing(int nr, int nc , char **splited, void *mlx , void *mlx_win);
+
 
 
     typedef struct s_mymap
@@ -43,5 +45,16 @@ void imposter( char **splited, int num_rows, int num_col);
 
 } t_mymap;
 // struct
+
+typedef struct s_mymlx
+{
+    void 	*wall;
+	void	*joseph;
+	void	*sand;
+	void 	*coin;
+	void	*exit;
+    int     *tool;
+    int     *ard;
+}  t_mymlx;
 
 #endif
