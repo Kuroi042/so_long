@@ -19,6 +19,8 @@ void errortextprint(int error);
 // void berber(char *str);
 void imposter(char **splited, int num_rows, int num_col);
 void mapdrwing(int nr, int nc, char **splited, void *mlx, void *mlx_win);
+void projec(int x , int y);
+void drawingxpm(int num_rows,int  num_col, char **splited);
 
 typedef struct s_mymap
 {
