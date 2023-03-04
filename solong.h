@@ -20,8 +20,16 @@ void errortextprint(int error);
 void imposter(char **splited, int num_rows, int num_col);
 void mapdrwing(int nr, int nc, char **splited, void *mlx, void *mlx_win);
 void projec(int x , int y);
-void drawingxpm(int num_rows,int  num_col, char **splited);
+void drawingxpm(int i, int j, char **splited);
+int handle_input(int keycode);
+int key_press(int keycode, void *param);
+void  findposi(int i, int j, char **splited);
 
+typedef struct s_player
+{
+    int player_x;
+    int player_y;
+} t_player;
 typedef struct s_mymap
 {
     int r;
@@ -40,20 +48,25 @@ typedef struct s_mymap
     char **splited;
 
 } t_mymap;
-// struct
+ 
+
 
 typedef struct s_mymlx
 {
     void *mlx;
-    void *win;
+    //void *win;
     void *mlx_win;
     void *wall;
     void *joseph;
     void *sand;
     void *coin;
     void *exit;
+    t_mymap *map;
+    t_player *player;
 
 } t_mymlx;
+
+
  
 
  

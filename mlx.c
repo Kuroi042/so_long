@@ -1,13 +1,12 @@
 
 #include "solong.h"
 t_mymlx mymlx;
-t_mymap mymap;
 int main(void)
 {
 	void *mlx;
 	void *mlx_win;
-	int width = (32 * mymap.num_col);
-	int height = (32 * mymap.num_rows);
+	int width = (32 * mymlx.map->num_col);
+	int height = (32 * mymlx.map->num_rows);
 
 	
 	mlx = mlx_init();
@@ -21,7 +20,7 @@ int main(void)
 
 
 
-	 mapdrwing(mymap.num_rows, mymap.num_col , mymap.splited,mlx,mlx_win);
+	 mapdrwing(mymlx.map->num_rows, mymlx.map->num_col , mymlx.map->splited,mlx,mlx_win);
 
 	mlx_loop(mlx);
 }

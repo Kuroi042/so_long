@@ -1,5 +1,4 @@
 #include "solong.h"
-t_mymap mymap;
 t_mymlx mymlx;
 void errortextprint(int error)
 {
@@ -11,6 +10,53 @@ void errortextprint(int error)
     printf("map is not ascii\n");
   if (error == 4)
     printf("map is not majuscule\n");
+}
+// }
+
+// #define w        13
+// #define a        0
+// #define s        1
+// #define d        2
+// int key_press(int keycode, void *param)
+// {
+
+//   (void)param;
+//   if (keycode == 13){
+//     findposi(  mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited); // where's the character 'P'
+//     // printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
+ 
+//     mymlx.map->splited[mymlx.player->player_x+ 1][mymlx.player->player_y] = 'P'; //next
+//     mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
+//     drawingxpm(mymlx.player->player_y, mymlx.player->player_x, mymlx.map->splited);
+//   }
+//   // return keycode;
+//   return 0;
+// }
+int key_press(int keycode, void *param)
+{
+  
+  (void)param;
+  if (keycode == 13){
+    findposi(mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
+    printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
+
+    //  if(mymlx.map->splited[mymlx.player->player_x - 1][mymlx.player->player_y] == '0'){
+      mymlx.map->splited[mymlx.player->player_x + 1][mymlx.player->player_y] = 'P'; //move up
+      // mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
+      
+  }
+  //   if (keycode == 0){
+  //   findposi(mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
+  //   // printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
+
+  //    mymlx.map->splited[mymlx.player->player_x - .1][mymlx.player->player_y] = '0' ;
+  //     mymlx.map->splited[mymlx.player->player_x - 1][mymlx.player->player_y] = 'P'; //move up
+  //     mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
+   
+  // }
+      drawingxpm(mymlx.player->player_y, mymlx.player->player_x, mymlx.map->splited);
+
+  return 0;
 }
 
 int main(int argc, char *argv[])
@@ -30,27 +76,32 @@ int main(int argc, char *argv[])
 
       map_str = get_next_line(fd);
     }
-    mymap.splited = ft_split(map1, '\n');
+      mymlx.map = malloc(sizeof(t_mymap));
+    mymlx.player = malloc(sizeof(t_player));
+    mymlx.map->splited = ft_split(map1, '\n');
     free(map1);
-    mymap.num_col = ft_strlen(mymap.splited[0]);  // num colum                    //num_rows
-    while (mymap.splited[mymap.num_rows] != NULL) // num coll
-    {                                             // splited[0] ...[NULL]
-      mymap.num_rows++;                           // rows = 0 inrements to 1234
+    mymlx.map->num_col = ft_strlen(mymlx.map->splited[0]);  // num colum                    //num_rows
+    while (mymlx.map->splited[mymlx.map->num_rows] != NULL) // num coll
+    {                                                       // splited[0] ...[NULL]
+      mymlx.map->num_rows++;                                // rows = 0 inrements to 1234
     }
-
-    permetre(mymap.num_rows, mymap.num_col, mymap.splited);
-    imposter(mymap.splited, mymap.num_rows, mymap.num_col);
-    checkdupPE(mymap.num_col, mymap.num_rows, mymap.splited);
-
-    t_mymlx *ptr = &mymlx;
-
-    ptr->mlx = mlx_init();
-    ptr->mlx_win = mlx_new_window(ptr->mlx, mymap.num_col * 32, mymap.num_rows * 32, "moghmarat jojo");
+    permetre(mymlx.map->num_rows, mymlx.map->num_col, mymlx.map->splited);
+    imposter(mymlx.map->splited, mymlx.map->num_rows, mymlx.map->num_col);
+    checkdupPE(mymlx.map->num_col, mymlx.map->num_rows, mymlx.map->splited);
+ 
+    mymlx.mlx = mlx_init();
+    mymlx.mlx_win = mlx_new_window(mymlx.mlx, mymlx.map->num_col * 32, mymlx.map->num_rows * 32, "moghmarat jojo");
+    int i = 0;
+    int j = 0;
 
     int x = 0;
     int y = 0;
     projec(x, y);
-    drawingxpm(mymap.num_rows, mymap.num_col, mymap.splited);
-    mlx_loop(ptr->mlx);
+    drawingxpm(i, j, mymlx.map->splited);
+     mlx_key_hook(mymlx.mlx_win , key_press, NULL); // mlx win 
+    //   findposi( mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
+    // printf("|x = %d| |y == %d|\n",  mymlx.player->player_y ,mymlx.player->player_x );
+
+    mlx_loop(mymlx.mlx);
   }
 }
