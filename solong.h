@@ -27,6 +27,8 @@ int key_press(int keycode, void *param);
 void rassam_lmahir(int i, int j, void *image );
  void destroy_image(void *mlx_ptr, void *img_ptr);
 void findposi(int i, int j, char **splited);
+ void  coin_counter(int i , int j , char **splited  );
+ void exit_point(int i , int j ,char **splited);
 
 typedef struct s_player
 {
@@ -64,6 +66,8 @@ typedef struct s_mymlx
     void *sand;
     void *coin;
     void *exit;
+    int coincounter;
+    int   num_coins;
     t_mymap *map;
     t_player *player;
 

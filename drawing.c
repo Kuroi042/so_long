@@ -28,8 +28,10 @@ void drawingxpm(int i, int j, char **splited)
                 mymlx.player->player_x = i;
                 mymlx.player->player_y = j;
             }
-            if (splited[i][j] == 'C')
+            if (splited[i][j] == 'C'){
                 mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->coin, j * 32, i*32);
+                    mymlx.num_coins++;
+            }
             if (splited[i][j] == 'E')
                 mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->exit, j * 32, i *32);
             j++;

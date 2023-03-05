@@ -1,5 +1,5 @@
 
-// #include "solong.h"
+#include "solong.h"
 
 // void berber(char *str)
 // {
@@ -24,3 +24,15 @@
 //             printf("String contains \".ber\"\n");
 //         }
 //     }
+
+void errortextprint(int error)
+{
+  if (error == 1)
+    printf("missing arguments in the map\n");
+  if (error == 2)
+    printf("duplicated P / E\n");
+  if (error == 3)
+    printf("map is not ascii\n");
+  if (error == 4)
+    printf("map is not majuscule\n");
+}
