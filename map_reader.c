@@ -11,53 +11,51 @@ void errortextprint(int error)
   if (error == 4)
     printf("map is not majuscule\n");
 }
-// }
-
-// #define w        13
-// #define a        0
-// #define s        1
-// #define d        2
-// int key_press(int keycode, void *param)
-// {
-
-//   (void)param;
-//   if (keycode == 13){
-//     findposi(  mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited); // where's the character 'P'
-//     // printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
- 
-//     mymlx.map->splited[mymlx.player->player_x+ 1][mymlx.player->player_y] = 'P'; //next
-//     mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
-//     drawingxpm(mymlx.player->player_y, mymlx.player->player_x, mymlx.map->splited);
-//   }
-//   // return keycode;
-//   return 0;
-// }
+//  if (keycode == 13) // W key
+//         player_y -= 1;
+//     else if (keycode == 0) // A key
+//         player_x -= 1;
+//     else if (keycode == 1) // S key
+//         player_y += 1;
+//     else if (keycode == 2) // D key
+//         player_x += 1;
 int key_press(int keycode, void *param)
 {
-  
   (void)param;
-  if (keycode == 13){
-    findposi(mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
-    printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
-
-    //  if(mymlx.map->splited[mymlx.player->player_x - 1][mymlx.player->player_y] == '0'){
-      mymlx.map->splited[mymlx.player->player_x + 1][mymlx.player->player_y] = 'P'; //move up
-      // mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
-      
+  if(keycode == 13) // W key
+  { 
+    mymlx.player->player_x-=1;
+            rassam_lmahir(mymlx.player->player_x, mymlx.player->player_y, mymlx.joseph); 
+            rassam_lmahir(mymlx.player->player_x+1 , mymlx.player->player_y, mymlx.sand);
   }
-  //   if (keycode == 0){
-  //   findposi(mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
-  //   // printf("|x = %d| |y == %d|\n", mymlx.player->player_x , mymlx.player->player_y);
+   if(keycode == 1) // S key
+  { 
+    mymlx.player->player_x+=1;
+            rassam_lmahir(mymlx.player->player_x, mymlx.player->player_y, mymlx.joseph); 
+            rassam_lmahir(mymlx.player->player_x-1 , mymlx.player->player_y, mymlx.sand);
+  }
 
-  //    mymlx.map->splited[mymlx.player->player_x - .1][mymlx.player->player_y] = '0' ;
-  //     mymlx.map->splited[mymlx.player->player_x - 1][mymlx.player->player_y] = 'P'; //move up
-  //     mymlx.map->splited[mymlx.player->player_x][mymlx.player->player_y] = '0';
-   
-  // }
-      drawingxpm(mymlx.player->player_y, mymlx.player->player_x, mymlx.map->splited);
 
-  return 0;
+   if(keycode == 0) //A key
+  { 
+    mymlx.player->player_y-=1;
+            rassam_lmahir(mymlx.player->player_x, mymlx.player->player_y, mymlx.joseph); 
+            rassam_lmahir(mymlx.player->player_x , mymlx.player->player_y+1, mymlx.sand);
+  }
+
+   if(keycode == 2) // D key
+  { 
+    mymlx.player->player_y+=1;
+            rassam_lmahir(mymlx.player->player_x, mymlx.player->player_y, mymlx.joseph); 
+            rassam_lmahir(mymlx.player->player_x, mymlx.player->player_y-1, mymlx.sand);
+  }
+
+
+
+    
+return 0;
 }
+
 
 int main(int argc, char *argv[])
 {
@@ -96,12 +94,12 @@ int main(int argc, char *argv[])
 
     int x = 0;
     int y = 0;
+   
     projec(x, y);
     drawingxpm(i, j, mymlx.map->splited);
-     mlx_key_hook(mymlx.mlx_win , key_press, NULL); // mlx win 
-    //   findposi( mymlx.player->player_x, mymlx.player->player_y, mymlx.map->splited);
-    // printf("|x = %d| |y == %d|\n",  mymlx.player->player_y ,mymlx.player->player_x );
+     //printf("x == %d , y == %d", mymlx.player->player_x, mymlx.player->player_y);
 
+     mlx_key_hook(mymlx.mlx_win,key_press,NULL);
     mlx_loop(mymlx.mlx);
   }
 }

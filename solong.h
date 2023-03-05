@@ -10,6 +10,7 @@
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
 
+
 void permetre(int num_rows, int num_col, char **splited);
 void errortext(int error);
 void permetre(int num_rows, int num_col, char **splited);
@@ -23,7 +24,9 @@ void projec(int x , int y);
 void drawingxpm(int i, int j, char **splited);
 int handle_input(int keycode);
 int key_press(int keycode, void *param);
-void  findposi(int i, int j, char **splited);
+void rassam_lmahir(int i, int j, void *image );
+ void destroy_image(void *mlx_ptr, void *img_ptr);
+void findposi(int i, int j, char **splited);
 
 typedef struct s_player
 {

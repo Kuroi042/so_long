@@ -14,8 +14,6 @@ void projec(int x , int y)
 
 void drawingxpm(int i, int j, char **splited)
 {
-     i = 0;
-     j = 0;
     while (i < mymlx.map->num_rows)
     {
         j = 0;
@@ -25,33 +23,22 @@ void drawingxpm(int i, int j, char **splited)
                 mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->wall, j * 32, i * 32);
             if (splited[i][j] == '0' || splited[i][j] == 'E' || splited[i][j] == 'P' || splited[i][j] == 'C')
                 mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->sand, j * 32, i * 32);
-            if (splited[i][j] == 'P')
-                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->joseph, j * 32, i * 32);
+            if (splited[i][j] == 'P'){
+                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->joseph, j * 32, i * 32);           
+                mymlx.player->player_x = i;
+                mymlx.player->player_y = j;
+            }
             if (splited[i][j] == 'C')
-                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->coin, j * 32, i * 32);
+                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->coin, j * 32, i*32);
             if (splited[i][j] == 'E')
-                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->exit, j * 32, i * 32);
+                mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, ptr->exit, j * 32, i *32);
             j++;
         }
         i++;
     }
 }
 
-
-void  findposi(int i, int j, char **splited)
-{
-    // int x = 0;
-    while (i < mymlx.map->num_rows)
-    {
-        j = 0;
-        while (j < mymlx.map->num_col)
-        {
-          if(splited[i][j] == 'P')
-            mymlx.player->player_x = j;
-            mymlx.player->player_y = i;
-            j++;
-        }
-        i++;
-    }
- 
+void rassam_lmahir(int i, int j, void *image ) {
+    mlx_put_image_to_window(ptr->mlx, ptr->mlx_win, image, j*32, i*32);
 }
+
