@@ -11,24 +11,6 @@
 #include "libft/libft.h"
 
 
-void permetre(int num_rows, int num_col, char **splited);
-void errortext(int error);
-void permetre(int num_rows, int num_col, char **splited);
-void checkdupPE(int num_col, int num_rows, char **splited);
-void openber(int fd);
-void errortextprint(int error);
-// void berber(char *str);
-void imposter(char **splited, int num_rows, int num_col);
-void mapdrwing(int nr, int nc, char **splited, void *mlx, void *mlx_win);
-void projec(int x , int y);
-void drawingxpm(int i, int j, char **splited);
-int handle_input(int keycode);
-int key_press(int keycode, void *param);
-void rassam_lmahir(int i, int j, void *image );
- void destroy_image(void *mlx_ptr, void *img_ptr);
-void findposi(int i, int j, char **splited);
- void  coin_counter(int i , int j , char **splited  );
- void exit_point(int i , int j ,char **splited);
 
 typedef struct s_player
 {
@@ -68,13 +50,33 @@ typedef struct s_mymlx
     void *exit;
     int coincounter;
     int   num_coins;
-    t_mymap *map;
-    t_player *player;
+    t_mymap map;
+    t_player player;
 
 } t_mymlx;
 
 
- 
+
+void permetre(int num_rows, int num_col, char **splited);
+void errortext(int error);
+void permetre(int num_rows, int num_col, char **splited);
+void checkdupPE(int num_col, int num_rows, char **splited);
+void openber(int fd);
+void errortextprint(int error);
+// void berber(char *str);
+void imposter(char **splited, int num_rows, int num_col);
+void mapdrwing(int nr, int nc, char **splited, void *mlx, void *mlx_win);
+void projec(int x , int y,t_mymlx *mymlx);
+void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx);
+// int handle_input(int keycode);
+int key_press(int keycode, t_mymlx *mymlx);
+void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
+//  void destroy_image(void *mlx_ptr, void *img_ptr);
+// void findposi(int i, int j, char **splited);
+void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
+void laporte(int i, int j, char **splited, t_mymlx *mymlx);
+//  void exit_point(int i , int j ,char **splited);
+//  void validpath(int i, int j , char **splited);
 
  
 

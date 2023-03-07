@@ -36,3 +36,4 @@ void permetre(int num_rows, int num_col, char **splited)
         printf("The perimetre is not set\n");
     }
 }
+// it segfault in tool = 14;
