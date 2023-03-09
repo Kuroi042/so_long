@@ -43,7 +43,7 @@ int key_press(int keycode, t_mymlx *mymlx)
             mymlx->player.player_y++;
             rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->joseph, mymlx);   // joseph
             rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y - 1, mymlx->sand, mymlx); // sand
-            printf("x == %d, y == %d \n",mymlx->player.player_x, mymlx->player.player_y);
+            //printf("x == %d, y == %d \n",mymlx->player.player_x, mymlx->player.player_y);
             exit_deleter(mymlx->player.player_x, mymlx->player.player_y-1,   mymlx);
         }
     }
@@ -58,7 +58,6 @@ int key_press(int keycode, t_mymlx *mymlx)
 
            mymlx->coincounter+=1;
            
-            printf("coiiin %d / %d\n",mymlx->coincounter,mymlx->num_coins);
             splited[i][j] = '0';
         }
         if (mymlx->num_coins -1 == mymlx->coincounter){

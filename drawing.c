@@ -52,12 +52,10 @@ void rassam_lmahir(int i, int j, void *image ,t_mymlx *mymlx)
 }
 void exit_deleter(int i, int j,t_mymlx *mymlx){
 
-    if(mymlx->map.splited[i][j] == 'E' &&  mymlx->coincounter != mymlx->num_coins){ // kant katssawi
-       printf("3afsaaak\n");
+    if(mymlx->map.splited[i][j] == 'E' &&  mymlx->coincounter != mymlx->num_coins){ 
        mlx_put_image_to_window( mymlx->mlx, mymlx->mlx_win,  mymlx->exit, j * 32, i * 32);
     }
    if(mymlx->map.splited[i][j] == 'E' &&  mymlx->coin_yes == 1){
-        printf("exiiit\n");
         exit(0);
     }
 }
