@@ -48,7 +48,10 @@ typedef struct s_mymlx
     void *sand;
     void *coin;
     void *exit;
+    void *enter;
+    int coin_yes;
     int coincounter;
+    int coins_collected;
     int   num_coins;
     t_mymap map;
     t_player player;
@@ -73,7 +76,7 @@ void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
 //  void destroy_image(void *mlx_ptr, void *img_ptr);
 // void findposi(int i, int j, char **splited);
 void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
-void laporte(int i, int j, char **splited, t_mymlx *mymlx);
+void exit_deleter(int i, int j,t_mymlx *mymlx);
 //  void exit_point(int i , int j ,char **splited);
 //  void validpath(int i, int j , char **splited);
 

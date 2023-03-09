@@ -1,27 +1,5 @@
 #include "solong.h"
-//  t_mymlx mymlx;
 
-// void validpath(int i, int j , char **splited){
-//   while(i < mymlx.map.num_rows)
-//   {
-//     j = 0;
-//     while(j < mymlx.map.num_col)
-//     {
-//       if(splited[i][j] == 'P')
-//       {
-//         if(splited[[i+1][j]] != 'E'){
-              
-//         }
-//       }
-
-
-
-//     }
-//   }
-
-
-
-// }
 int main(int argc, char *argv[])
 {
  
@@ -50,11 +28,8 @@ int main(int argc, char *argv[])
   //   while (i<mymlx->map.num_rows){
   //  printf("%s\n", mymlx->map.splited[i]);
   //  i++;
-  // //   }
-    printf("rows == %d\n", mymlx->map.num_rows);
-    printf("cols == %d\n", mymlx->map.num_col);
-     permetre(mymlx);
-
+  //   }
+    permetre(mymlx);
    imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
   checkdupPE(mymlx->map.num_col, mymlx->map.num_rows, mymlx->map.splited);
 
@@ -62,10 +37,8 @@ int main(int argc, char *argv[])
     mymlx->mlx_win = mlx_new_window(mymlx->mlx, mymlx->map.num_col * 32, mymlx->map.num_rows * 32, "moghmarat jojo l3jibaaa");
     int i = 0;
     int j = 0;
-
     int x = 0;
     int y = 0;
-
     projec(x, y,mymlx);
     drawingxpm(i, j, mymlx->map.splited, mymlx);
     mlx_key_hook(mymlx->mlx_win, key_press, mymlx);
