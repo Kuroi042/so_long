@@ -24,6 +24,7 @@
 // }
 int main(int argc, char *argv[])
 {
+ 
   t_mymlx *mymlx;
   mymlx = (t_mymlx*)malloc(sizeof(t_mymap));
   char *map1;
@@ -33,28 +34,29 @@ int main(int argc, char *argv[])
     int fd = open(argv[1], O_RDONLY);
     // openber(fd);
     map_str = get_next_line(fd);
-    size_t len = ft_strlen(map_str);
-    map1 = ft_calloc(len, 1);
+  // map1 =  (char*)malloc(1);
+    map1 =  (char*)malloc(1 * sizeof(char));
+  map1[0] = '\0';
     while (map_str)
     {
       map1 = ft_strjoinget(map1, map_str);
-
       map_str = get_next_line(fd);
+      mymlx->map.num_rows++;                              // rows = 0 inrements to 1234
     }
-    // mymlx.map = malloc(sizeof(t_mymap));
-    // mymlx.player = malloc(sizeof(t_player));
 
-    mymlx->map.splited = ft_split(map1, '\n');
-    // mymlx->map->splited =
-    free(map1);
+    mymlx->map.splited = ft_split(map1,'\n');
     mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);  // num colum                    //num_rows
-    while (mymlx->map.splited[mymlx->map.num_rows] != NULL) // num coll
-    {                                                       // splited[0] ...[NULL]
-      mymlx->map.num_rows++;                                // rows = 0 inrements to 1234
-    }
-    permetre(mymlx->map.num_rows, mymlx->map.num_col, mymlx->map.splited);
-    imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
-    checkdupPE(mymlx->map.num_col, mymlx->map.num_rows, mymlx->map.splited);
+  //       int i =0;
+  //   while (i<mymlx->map.num_rows){
+  //  printf("%s\n", mymlx->map.splited[i]);
+  //  i++;
+  // //   }
+    printf("rows == %d\n", mymlx->map.num_rows);
+    printf("cols == %d\n", mymlx->map.num_col);
+     permetre(mymlx);
+
+   imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
+  checkdupPE(mymlx->map.num_col, mymlx->map.num_rows, mymlx->map.splited);
 
     mymlx->mlx = mlx_init();
     mymlx->mlx_win = mlx_new_window(mymlx->mlx, mymlx->map.num_col * 32, mymlx->map.num_rows * 32, "moghmarat jojo l3jibaaa");
