@@ -10,8 +10,6 @@
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
 
-
-
 typedef struct s_player
 {
     int player_x;
@@ -35,13 +33,11 @@ typedef struct s_mymap
     char **splited;
 
 } t_mymap;
- 
-
 
 typedef struct s_mymlx
 {
     void *mlx;
-    //void *win;
+    // void *win;
     void *mlx_win;
     void *wall;
     void *joseph;
@@ -50,15 +46,15 @@ typedef struct s_mymlx
     void *exit;
     void *enter;
     int coin_yes;
+    int exit_x;
+    int exit_y;
     int coincounter;
     int coins_collected;
-    int   num_coins;
+    int num_coins;
     t_mymap map;
     t_player player;
     int x;
 } t_mymlx;
-
-
 
 void permetre(t_mymlx *mymlx);
 void errortext(int error);
@@ -67,14 +63,13 @@ void openber(int fd);
 void errortextprint(int error);
 void berber(char *str);
 void imposter(char **splited, int num_rows, int num_col);
-void projec(int x , int y,t_mymlx *mymlx);
+void projec(int x, int y, t_mymlx *mymlx);
 void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx);
 int key_press(int keycode, t_mymlx *mymlx);
 void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
+void printexit(t_mymlx *mymlx);
 void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
-void exit_deleter(int i, int j,t_mymlx *mymlx);
-
- 
-
+//void exit_deleter(int i, int j, t_mymlx *mymlx);
+//void exit_position(t_mymlx *mymlx);
 
 #endif

@@ -9,21 +9,13 @@ int main(int argc, char *argv[])
   char *map_str; // map_str ghadi doz f get_next_line
 
   map_str = malloc(1);
-  //mymlx->map.num_rows =0;
-  //mymlx->map.num_col =0;
   if (!map_str)
     return (0);
   if (argc == 2)
   {
     int fd = open(argv[1], O_RDONLY);
     openber(fd);
-     //map_str = get_next_line(fd);
-     //printf("%s", map_str );
-  // map1 =  (char*)malloc(1);
     map1 =  (char*)malloc(1 * sizeof(char));
-  //map1[0] = '\0';
-  //
-  
   while(1)
   {
     map_str = get_next_line(fd);
@@ -34,7 +26,6 @@ int main(int argc, char *argv[])
  mymlx->map.num_rows = 0;
    mymlx->map.splited = ft_split(map1,'\n');
    mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);  // num colum                    //num_rows
-  //  int i = 0;
 
    while(mymlx->map.splited[mymlx->map.num_rows] != NULL)
    {
@@ -50,9 +41,8 @@ int main(int argc, char *argv[])
   //   }
   mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);
   printf("len %d\n",mymlx->map.num_col);
-  // berber(argv[1]);
-    permetre(mymlx);
-   imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
+  permetre(mymlx);
+  imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
   checkdupPE(mymlx->map.num_col, mymlx->map.num_rows, mymlx->map.splited);
 
     mymlx->mlx = mlx_init();
