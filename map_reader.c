@@ -15,15 +15,16 @@ int main(int argc, char *argv[])
   {
     int fd = open(argv[1], O_RDONLY);
     openber(fd);
-    map1 =  (char*)malloc(1 * sizeof(char));
+    map1 = (char*)malloc(1 * sizeof(char));
   while(1)
   {
     map_str = get_next_line(fd);
     if (map_str == NULL)
       break;
     map1 = ft_strjoinget(map1, map_str);
+    mymlx->map.map_line_counter++;
   }
- mymlx->map.num_rows = 0;
+  mymlx->map.num_rows = 0;
    mymlx->map.splited = ft_split(map1,'\n');
    mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);  // num colum                    //num_rows
 
@@ -31,16 +32,8 @@ int main(int argc, char *argv[])
    {
       mymlx->map.num_rows++;
    }    
-  //  mymlx->x = i;
-  //  printf("%d\n",mymlx->x);
-       // int i =0;
-    //printf("%d", mymlx->x);
-  //   while (i<mymlx->map.num_rows){
-  //  printf("%s\n", mymlx->map.splited[i]);
-  //  i++;
-  //   }
+   line_counter( mymlx);
   mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);
-  printf("len %d\n",mymlx->map.num_col);
   permetre(mymlx);
   imposter(mymlx->map.splited, mymlx->map.num_rows, mymlx->map.num_col);
   checkdupPE(mymlx->map.num_col, mymlx->map.num_rows, mymlx->map.splited);

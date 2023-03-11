@@ -24,15 +24,10 @@
 //             printf("String contains \".ber\"\n");
 //         }
 //     }
-
-// void errortextprint(int error)
-// {
-//   if (error == 1)
-//     printf("missing arguments in the map\n");
-//   if (error == 2)
-//     printf("duplicated P / E\n");
-//   if (error == 3)
-//     printf("map is not ascii\n");
-//   if (error == 4)
-//     printf("map is not majuscule\n");
-// }
+void line_counter(t_mymlx *mymlx){
+  if( mymlx->map.map_line_counter != mymlx->map.num_rows)
+  {
+    printf("errors in map lines\n");
+    exit(0);
+  }
+}

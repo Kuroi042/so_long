@@ -7,10 +7,11 @@ void projec(int x, int y, t_mymlx *mymlx)
     mymlx->joseph = mlx_xpm_file_to_image(mymlx->mlx, "xpms/jooseph.xpm", &x, &y);
     mymlx->coin = mlx_xpm_file_to_image(mymlx->mlx, "xpms/bassit.xpm", &x, &y);
     mymlx->exit = mlx_xpm_file_to_image(mymlx->mlx, "xpms/kherja.xpm", &x, &y);
-    mymlx->enter = mlx_xpm_file_to_image(mymlx->mlx ,"xpms/dkhel.xpm" , &x,&y);
+    mymlx->enter = mlx_xpm_file_to_image(mymlx->mlx, "xpms/dkhel.xpm", &x, &y);
 }
 void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx)
-{   mymlx->num_coins = 0;
+{
+    mymlx->num_coins = 0;
     while (i < mymlx->map.num_rows)
     {
         j = 0;
@@ -31,8 +32,9 @@ void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx)
                 mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, mymlx->coin, j * 32, i * 32);
                 mymlx->num_coins++;
             }
-            if (splited[i][j] == 'E'){
-                
+            if (splited[i][j] == 'E')
+            {
+
                 mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, mymlx->exit, j * 32, i * 32);
                 mymlx->exit_x = i;
                 mymlx->exit_y = j;
@@ -43,23 +45,26 @@ void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx)
     }
 }
 
-void rassam_lmahir(int i, int j, void *image ,t_mymlx *mymlx)
-{   
-    
-      if(mymlx->map.splited[i][j] == 'E' &&  mymlx->coin_yes == 1){
+void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx)
+{
+
+    if (mymlx->map.splited[i][j] == 'E' && mymlx->coin_yes == 1)
+    {
         printf("exit\n");
         exit(0);
     }
-   else {
-        mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win,  image, j * 32, i * 32);
+    else
+    {
+        mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, image, j * 32, i * 32);
     }
 }
-void printexit(t_mymlx *mymlx){
-    if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y] == 'E' && mymlx->coincounter != mymlx->num_coins) {
-       mlx_put_image_to_window(mymlx->mlx,mymlx->mlx_win,mymlx->exit,mymlx->exit_y*32,mymlx->exit_x*32);
-            mlx_put_image_to_window(mymlx->mlx,mymlx->mlx_win,mymlx->joseph,mymlx->exit_y*32,mymlx->exit_x*32);
+void printexit(t_mymlx *mymlx)
+{
+    if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y] == 'E' && mymlx->coincounter != mymlx->num_coins)
+    {
+        mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, mymlx->exit, mymlx->exit_y * 32, mymlx->exit_x * 32);
+        mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, mymlx->joseph, mymlx->exit_y * 32, mymlx->exit_x * 32);
     }
-    else 
-            mlx_put_image_to_window(mymlx->mlx,mymlx->mlx_win,mymlx->exit,mymlx->exit_y*32,mymlx->exit_x*32);
-
+    else
+        mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, mymlx->exit, mymlx->exit_y * 32, mymlx->exit_x * 32);
 }

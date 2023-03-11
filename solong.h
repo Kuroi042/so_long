@@ -19,6 +19,7 @@ typedef struct s_mymap
 {
     int r;
     int c;
+    int map_line_counter;
     int num_rows;
     int num_col;
     int errorI;
@@ -69,6 +70,7 @@ int key_press(int keycode, t_mymlx *mymlx);
 void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
 void printexit(t_mymlx *mymlx);
 void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
+void line_counter(t_mymlx *mymlx);
 //void exit_deleter(int i, int j, t_mymlx *mymlx);
 //void exit_position(t_mymlx *mymlx);
 
