@@ -50,7 +50,6 @@ void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx)
 
     if (mymlx->map.splited[i][j] == 'E' && mymlx->coin_yes == 1)
     {
-        printf("exit\n");
         exit(0);
     }
     else

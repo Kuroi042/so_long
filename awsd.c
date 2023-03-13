@@ -61,10 +61,12 @@ int key_press(int keycode, t_mymlx *mymlx)
         {
 
            mymlx->coincounter+=1;
+           printf("num coins = %d\n",mymlx->coincounter);
             splited[i][j] = '0';
         }
         if (mymlx->num_coins == mymlx->coincounter){
             mymlx->coin_yes = 1;
             mlx_string_put(mymlx->mlx, mymlx->mlx_win, 12, 10, 0xffffff, "all coins are collected ! Exit now ");
+    
         }
     }

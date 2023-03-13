@@ -10,8 +10,8 @@ while (i < num_rows) {
 
   while (j < num_col) {
     if ((splited[i][j] != '1') && (splited[i][j] != '0') && (splited[i][j] != 'E') && (splited[i][j] != 'C') && (splited[i][j] != 'P')) {
-        printf("character|%c| is imposter \n", splited[i][j]);
-           break;
+        printf("character|%c| is imposter Check(%d,%d) \n", splited[i][j],i,j);
+           exit(0);
     }
 
       j++;
@@ -50,7 +50,7 @@ void openber(int fd)
 
   if(fd == -1){
     printf("open error");
-    exit(1);
+    exit(0);
   }
 }
 

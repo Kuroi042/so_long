@@ -14,6 +14,8 @@ typedef struct s_player
 {
     int player_x;
     int player_y;
+    int path_x;
+    int path_y;
 } t_player;
 typedef struct s_mymap
 {
@@ -27,18 +29,19 @@ typedef struct s_mymap
     int check_tool_teht;
     int check_jnab_1;
     int check_jnab_2;
+    char *map1;
+    char *map_str; // map_str ghadi doz f get_next_line
     size_t len_map;
     int counter;
     int e_found;
     int p_found;
     char **splited;
-
+    char **maptester;
 } t_mymap;
 
 typedef struct s_mymlx
 {
     void *mlx;
-    // void *win;
     void *mlx_win;
     void *wall;
     void *joseph;
@@ -50,11 +53,17 @@ typedef struct s_mymlx
     int exit_x;
     int exit_y;
     int coincounter;
+    int path_coin;
     int coins_collected;
     int num_coins;
+    int i;
+    int j;
+    int m;
+    int n;
+    int exitfound;
     t_mymap map;
     t_player player;
-    int x;
+ 
 } t_mymlx;
 
 void permetre(t_mymlx *mymlx);
@@ -71,7 +80,10 @@ void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
 void printexit(t_mymlx *mymlx);
 void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
 void line_counter(t_mymlx *mymlx);
-//void exit_deleter(int i, int j, t_mymlx *mymlx);
-//void exit_position(t_mymlx *mymlx);
-
+void is_valid_move(char **map,t_mymlx *mymlx);
+void player_position(char **splited, int path_x, int path_y, t_mymlx *mymlx);
+void coin_checker(t_mymlx *mymlx);
+void diffcoin(t_mymlx *mymlx);
+void  checker(t_mymlx *mymlx); //chhal 3ndi mn coin 9bl manfloodi 
+void findexit(char **splited, t_mymlx *mymlx);
 #endif

@@ -24,10 +24,12 @@
 //             printf("String contains \".ber\"\n");
 //         }
 //     }
+
+//check for new line is map 
 void line_counter(t_mymlx *mymlx){
-  if( mymlx->map.map_line_counter != mymlx->map.num_rows)
-  {
-    printf("errors in map lines\n");
+if(mymlx->map.map_line_counter != mymlx->map.num_rows ){
+    printf("map.ber lines are not correct ! \n");
     exit(0);
-  }
 }
+  }
+ 
