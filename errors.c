@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 16:58:02 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:50:05 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	openber(int fd)
 
 void	line_errors(t_mymlx *mymlx)
 {
+	line_count( mymlx);
 	if (!mymlx->map.map_str)
 	{
 		printf("error map is empty\n");

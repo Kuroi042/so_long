@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:06:50 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:49:37 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	berber(char *str)
 	}
 }
 
-void	line_counter(t_mymlx *mymlx)
+void	line_count(t_mymlx *mymlx)
 {
 	if (mymlx->map.map_line_counter != mymlx->map.num_rows)
 	{
@@ -37,10 +37,10 @@ void	allerror(t_mymlx *mymlx)
 
 	i = 0;
 	j = 0;
+	//line_count(mymlx);
+	check_num_col(mymlx);
 	inputter(i, j, mymlx);
 	permetre(mymlx);
-	check_num_col(mymlx);
-	line_counter(mymlx);
 	checker(mymlx);
 }
 

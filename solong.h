@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:15:20 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:46:45 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int				pressex(int keycode);
 void			press_escap(t_mymlx *mymlx);
 void			rassam(int i, int j, void *image, t_mymlx *mymlx);
 void			coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
-void			line_counter(t_mymlx *mymlx);
+void			line_count(t_mymlx *mymlx);
 void			is_valid_move(char **map, t_mymlx *mymlx);
 void			player_position(char **splited, int path_x, int path_y,
 					t_mymlx *mymlx);

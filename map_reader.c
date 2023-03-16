@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:55:57 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 16:37:12 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/16 19:51:14 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ int	main(int argc, char *argv[])
 		fd = open(argv[1], O_RDONLY);
 		openber(fd);
 		berber(argv[1]);
-		mymlx->map.map1 = (char *)malloc(1 * sizeof(char));
-		mymlx->map.map_str = get_next_line(fd);
-		line_errors(mymlx);
 		get_and_join(mymlx, fd);
+		line_errors(mymlx);
 		rowsandcols(mymlx);
 		allerror(mymlx);
 		mlx(mymlx);
