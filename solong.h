@@ -16,6 +16,7 @@ typedef struct s_player
     int player_y;
     int path_x;
     int path_y;
+    int pas;
 } t_player;
 typedef struct s_mymap
 {
@@ -25,16 +26,17 @@ typedef struct s_mymap
     int num_rows;
     int num_col;
     int errorI;
-    int check_tool;
+    int check_tool_up;
     int check_tool_teht;
-    int check_jnab_1;
-    int check_jnab_2;
+    int check_side_left;
+    int check_side_right;
     char *map1;
     char *map_str; // map_str ghadi doz f get_next_line
     size_t len_map;
     int counter;
-    int e_found;
-    int p_found;
+    int e_found; // dup
+    int p_found; //  dup
+       int e_kayna;
     char **splited;
     char **maptester;
 } t_mymap;
@@ -61,6 +63,9 @@ typedef struct s_mymlx
     int m;
     int n;
     int exitfound;
+    int playerdiali;
+    int colldiali;
+    int exitdiali;
     t_mymap map;
     t_player player;
  
@@ -76,14 +81,32 @@ void imposter(char **splited, int num_rows, int num_col);
 void projec(int x, int y, t_mymlx *mymlx);
 void drawingxpm(int i, int j, char **splited, t_mymlx *mymlx);
 int key_press(int keycode, t_mymlx *mymlx);
-void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
+void press_w(t_mymlx *mymlx);
+void press_a(t_mymlx *mymlx);
+void press_s(t_mymlx *mymlx);
+void press_d(t_mymlx *mymlx);
 void printexit(t_mymlx *mymlx);
+int pressex(int keycode);
+void press_escap(t_mymlx *mymlx);
+void rassam_lmahir(int i, int j, void *image, t_mymlx *mymlx);
 void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
 void line_counter(t_mymlx *mymlx);
 void is_valid_move(char **map,t_mymlx *mymlx);
 void player_position(char **splited, int path_x, int path_y, t_mymlx *mymlx);
+void big_path_if(char **splited , int pathx , int pathy, t_mymlx *mymlx);
+void drawingxpsuite(char **splited, int i , int j , t_mymlx *mymlx );
 void coin_checker(t_mymlx *mymlx);
 void diffcoin(t_mymlx *mymlx);
 void  checker(t_mymlx *mymlx); //chhal 3ndi mn coin 9bl manfloodi 
 void findexit(char **splited, t_mymlx *mymlx);
+void coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
+void check_num_col(t_mymlx *mymlx);
+int len(char *str);
+void checkforPE(t_mymlx *mymlx);
+void mlx(t_mymlx *mymlx);
+ void allerror(t_mymlx *mymlx);
+ void find_e( t_mymlx *mymlx);
+ void inputter(t_mymlx *mymlx);
+// void rowandcolandsplited(t_mymlx *mymlx);
+
 #endif

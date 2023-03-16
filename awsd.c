@@ -1,72 +1,89 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   awsd.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/14 00:33:20 by mbouderr          #+#    #+#             */
+/*   Updated: 2023/03/15 23:02:58 by mbouderr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "solong.h"
+
 int key_press(int keycode, t_mymlx *mymlx)
 {
-    if (keycode == 13) // W key
-    {
-        if (mymlx->map.splited[mymlx->player.player_x - 1][mymlx->player.player_y] != '1')
-        {   
-            rassam_lmahir(mymlx->player.player_x-1, mymlx->player.player_y, mymlx->sand, mymlx);
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->sand, mymlx);
-            rassam_lmahir(mymlx->player.player_x-1, mymlx->player.player_y, mymlx->joseph, mymlx);
-             mymlx->player.player_x--;
-            printexit(mymlx);
-            coin_counter(mymlx->player.player_x, mymlx->player.player_y, mymlx->map.splited, mymlx);
-            
-        }
-    }
-    else if (keycode == 1) // S key
-    { 
-        if (mymlx->map.splited[mymlx->player.player_x + 1][mymlx->player.player_y] != '1')
-        { 
-            rassam_lmahir(mymlx->player.player_x + 1 , mymlx->player.player_y, mymlx->sand, mymlx);
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->sand, mymlx);
-            rassam_lmahir(mymlx->player.player_x + 1, mymlx->player.player_y, mymlx->joseph, mymlx);
-            mymlx->player.player_x++;   
-            printexit(mymlx);
-            coin_counter(mymlx->player.player_x, mymlx->player.player_y ,mymlx->map.splited, mymlx);
-        }
-    }
-    else if (keycode == 0) // A key
-    {   
-        if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y - 1] != '1')
-        {     
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y-1, mymlx->sand, mymlx); // next place sand
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->sand, mymlx); //sand 
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y-1, mymlx->joseph, mymlx); //joseph nxt place
-            mymlx->player.player_y--;
-            printexit(mymlx);
-            coin_counter(mymlx->player.player_x, mymlx->player.player_y, mymlx->map.splited, mymlx);
-        }
-    }
-    else if (keycode == 2) // D key
-    {
-       
-        if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y + 1] != '1')
-        {
-           rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y +1, mymlx->sand, mymlx); //sand
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->sand, mymlx);   // joseph
-            rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y +1, mymlx->joseph, mymlx); // sand
-             mymlx->player.player_y++;
-            printexit(mymlx);
-             coin_counter(mymlx->player.player_x, mymlx->player.player_y, mymlx->map.splited, mymlx);
-        }
-    }
-    return 0;
+	if (keycode == 13)
+		press_w(mymlx);
+	if (keycode == 1)
+		press_s(mymlx);
+	if (keycode == 0)
+		press_a(mymlx);
+	if (keycode == 2)
+		press_d(mymlx);
+	if (keycode == 53)
+		press_escap(mymlx);
+
+	return (0);
 }
 
-    void coin_counter(int i, int j, char **splited, t_mymlx *mymlx)
-    {
+void press_w(t_mymlx *mymlx)
+{
+	if (mymlx->map.splited[mymlx->player.player_x - 1][mymlx->player.player_y] != '1')
+	{
+		rassam_lmahir(mymlx->player.player_x - 1, mymlx->player.player_y, mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y, mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x - 1, mymlx->player.player_y, mymlx->joseph, mymlx);
+		mymlx->player.player_x--;
+		mymlx->player.pas++;
+		printexit(mymlx);
+		coin_counter(mymlx->player.player_x, mymlx->player.player_y,mymlx->map.splited, mymlx);
+		printf("khatawat : %d\n", mymlx->player.pas);
+	}
+}
 
-        if (splited[i][j] == 'C')
-        {
+void press_s(t_mymlx *mymlx)
+{
+	if (mymlx->map.splited[mymlx->player.player_x + 1][mymlx->player.player_y] != '1')
+	{
+		rassam_lmahir(mymlx->player.player_x + 1, mymlx->player.player_y,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x + 1, mymlx->player.player_y,mymlx->joseph, mymlx);
+		mymlx->player.player_x++;
+		mymlx->player.pas++;
+		printexit(mymlx);
+		coin_counter(mymlx->player.player_x, mymlx->player.player_y,mymlx->map.splited, mymlx);
+		printf("khatawat : %d\n", mymlx->player.pas);
+	}
+}
 
-           mymlx->coincounter+=1;
-           printf("num coins = %d\n",mymlx->coincounter);
-            splited[i][j] = '0';
-        }
-        if (mymlx->num_coins == mymlx->coincounter){
-            mymlx->coin_yes = 1;
-            mlx_string_put(mymlx->mlx, mymlx->mlx_win, 12, 10, 0xffffff, "all coins are collected ! Exit now ");
-    
-        }
-    }
+void press_a(t_mymlx *mymlx)
+{
+	if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y - 1] != '1')
+	{
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y - 1,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y - 1,mymlx->joseph, mymlx);
+		mymlx->player.player_y--;
+		mymlx->player.pas++;
+		printexit(mymlx);
+		coin_counter(mymlx->player.player_x, mymlx->player.player_y,mymlx->map.splited, mymlx);
+		printf("khatawat : %d\n", mymlx->player.pas);
+	}
+}
+
+void press_d(t_mymlx *mymlx)
+{
+	if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y + 1] != '1')
+	{
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y + 1,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y,mymlx->sand, mymlx);
+		rassam_lmahir(mymlx->player.player_x, mymlx->player.player_y + 1,mymlx->joseph, mymlx);
+		mymlx->player.player_y++;
+		mymlx->player.pas++;
+		printexit(mymlx);
+		coin_counter(mymlx->player.player_x, mymlx->player.player_y, mymlx->map.splited, mymlx);
+		printf("khatawat : %d\n", mymlx->player.pas);
+	}
+}
