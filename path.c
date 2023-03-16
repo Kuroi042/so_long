@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:31:07 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/14 17:29:50 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/16 17:13:16 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	checker(t_mymlx *mymlx)
 	int	g;
 	int	k;
 	int	m;
+
 	coincounter(mymlx->map.maptester, mymlx);
 	k = mymlx->path_coin;
 	g = 0;

@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlxfunctions.c                                     :+:      :+:    :+:   */
+/*   coincounter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 06:11:14 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:12:15 by mbouderr         ###   ########.fr       */
+/*   Created: 2023/03/16 16:38:30 by mbouderr          #+#    #+#             */
+/*   Updated: 2023/03/16 17:35:39 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	mlx(t_mymlx *mymlx)
+void	coin_counter(int i, int j, char **splited, t_mymlx *mymlx)
 {
-	mymlx->mlx = mlx_init();
-	mymlx->mlx_win = mlx_new_window(mymlx->mlx, mymlx->map.num_col * 32,
-			mymlx->map.num_rows * 32, "3ayn dahrek");
-	projec(mymlx->m, mymlx->n, mymlx);
-	drawingxpm(mymlx->i, mymlx->j, mymlx->map.splited, mymlx);
-	mlx_hook(mymlx->mlx_win, 17, 0, pressex, mymlx);
-	mlx_key_hook(mymlx->mlx_win, key_press, mymlx);
-	mlx_loop(mymlx->mlx);
+	if (splited[i][j] == 'C')
+	{
+		mymlx->coincounter += 1;
+		splited[i][j] = '0';
+	}
+	if (mymlx->num_coins == mymlx->coincounter)
+		mymlx->coin_yes = 1;
+}
+
+void	press_escap(t_mymlx *mymlx)
+{
+	mlx_destroy_window(mymlx->mlx, mymlx->mlx_win);
+	exit(0);
+}
+
+int	pressex(int keycode)
+{
+	keycode = 17;
+	exit(0);
+	return (0);
 }

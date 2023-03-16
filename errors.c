@@ -1,56 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
+/*   Updated: 2023/03/16 16:58:02 by mbouderr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "solong.h"
-void imposter( char **splited, int   num_rows,int   num_col)
+
+void	newline(t_mymlx *mymlx)
 {
-    int i = 0;
-    int  j = 0;
+	int	i;
+	int	j;
 
-while (i < num_rows) {
-  j = 0;
-
-  while (j < num_col) {
-    if ((splited[i][j] != '1') && (splited[i][j] != '0') && (splited[i][j] != 'E') && (splited[i][j] != 'C') && (splited[i][j] != 'P')) {
-        printf("character|%c| is imposter Check(%d,%d) \n", splited[i][j],i,j);
-           exit(0);
-    }
-
-      j++;
-  }
-i++;
+	i = 0;
+	j = 0;
+	while (i < mymlx->map.num_rows)
+	{
+		j = 0;
+		while (j < mymlx->map.num_col)
+		{
+			if (mymlx->map.splited[0][j] == '\n')
+				exit(0);
+		}
+		j++;
+	}
+	i++;
 }
-}
-void checkdupPE(int num_col, int num_rows, char **splited)
+
+void	openber(int fd)
 {
-    int i = 0;
-    int j = 0;
-    int p_found = 0;
-    int e_found = 0;
-    while (i < num_rows)
-    {
-        j = 0;
-        while (j < num_col)
-        {
-            if ((splited[i][j] == 'P') || (splited[i][j] == 'E'))
-            {
-                p_found++;
-                e_found++;
-                if (e_found + p_found > 4)
-                {
-                    printf("duplicated P | E \n");
-                       exit(0);
-                }
-            }
-            j++;
-        }
-        i++;
-    }
+	if (fd == -1)
+	{
+		printf("open error");
+		exit(0);
+	}
 }
-void openber(int fd)
+
+void	line_errors(t_mymlx *mymlx)
 {
-
-  if(fd == -1){
-    printf("open error");
-    exit(0);
-  }
+	if (!mymlx->map.map_str)
+	{
+		printf("error map is empty\n");
+		exit(0);
+	}
+	if (mymlx->map.map_str[0] == '\n')
+	{
+		printf("error too many newline \n");
+		exit(0);
+	}
 }
-
