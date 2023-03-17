@@ -6,12 +6,17 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:55:57 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 19:51:14 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 06:54:49 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
-
+void freee(t_mymlx *mymlx){
+	free(mymlx->map.map_str);
+	free(mymlx->map.map1);
+	free(mymlx);
+	
+}
 int	main(int argc, char *argv[])
 {
 	t_mymlx	*mymlx;
@@ -26,12 +31,17 @@ int	main(int argc, char *argv[])
 	{
 		fd = open(argv[1], O_RDONLY);
 		openber(fd);
-		berber(argv[1]);
-		get_and_join(mymlx, fd);
+			mymlx->map.map1 = (char *)malloc(1 * sizeof(char));
+	mymlx->map.map_str = get_next_line(fd);
 		line_errors(mymlx);
+		get_and_join(mymlx, fd);
 		rowsandcols(mymlx);
 		allerror(mymlx);
+		
 		mlx(mymlx);
+		while(1){
+			
+		}
 	}
 	printf("./a.out ??\n");
 	exit(0);

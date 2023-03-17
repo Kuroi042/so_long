@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 19:49:37 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 04:50:46 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	allerror(t_mymlx *mymlx)
 
 	i = 0;
 	j = 0;
-	//line_count(mymlx);
+	line_count(mymlx);
 	check_num_col(mymlx);
 	inputter(i, j, mymlx);
 	permetre(mymlx);

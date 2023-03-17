@@ -6,31 +6,12 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 19:50:05 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 05:05:01 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	newline(t_mymlx *mymlx)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < mymlx->map.num_rows)
-	{
-		j = 0;
-		while (j < mymlx->map.num_col)
-		{
-			if (mymlx->map.splited[0][j] == '\n')
-				exit(0);
-		}
-		j++;
-	}
-	i++;
-}
 
 void	openber(int fd)
 {
@@ -43,7 +24,6 @@ void	openber(int fd)
 
 void	line_errors(t_mymlx *mymlx)
 {
-	line_count( mymlx);
 	if (!mymlx->map.map_str)
 	{
 		printf("error map is empty\n");

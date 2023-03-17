@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:31:50 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:51:51 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 06:54:02 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	projec(int x, int y, t_mymlx *mymlx)
 {
-	mymlx->wall = mlx_xpm_file_to_image(mymlx->mlx, "xpms/waall.xpm", &x, &y);
-	mymlx->sand = mlx_xpm_file_to_image(mymlx->mlx, "xpms/sand.xpm", &x, &y);
-	mymlx->joseph = mlx_xpm_file_to_image(mymlx->mlx, "xpms/jooseph.xpm", &x,
+	mymlx->wall = mlx_xpm_file_to_image(mymlx->mlx, "textures/waall.xpm", &x, &y);
+	mymlx->sand = mlx_xpm_file_to_image(mymlx->mlx, "textures/sand.xpm", &x, &y);
+	mymlx->joseph = mlx_xpm_file_to_image(mymlx->mlx, "textures/jooseph.xpm", &x,
 			&y);
-	mymlx->coin = mlx_xpm_file_to_image(mymlx->mlx, "xpms/bassit.xpm", &x, &y);
-	mymlx->exit = mlx_xpm_file_to_image(mymlx->mlx, "xpms/kherja.xpm", &x, &y);
+	mymlx->coin = mlx_xpm_file_to_image(mymlx->mlx, "textures/bassit.xpm", &x, &y);
+	mymlx->exit = mlx_xpm_file_to_image(mymlx->mlx, "textures/kherja.xpm", &x, &y);
 }
 
 void	drawingxpm(int i, int j, char **splited, t_mymlx *mymlx)

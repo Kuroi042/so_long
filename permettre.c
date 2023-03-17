@@ -6,11 +6,23 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 19:43:42 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 06:24:09 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
+
+void	get_and_join(t_mymlx *mymlx, int fd)
+{
+	while (1)
+	{
+		mymlx->map.map1 = ft_strjoinget(mymlx->map.map1, mymlx->map.map_str);
+		mymlx->map.map_line_counter++;
+		mymlx->map.map_str = get_next_line(fd);
+		if (mymlx->map.map_str == NULL)
+			break ;
+	}
+}
 
 void	rowsandcols(t_mymlx *mymlx)
 {
@@ -23,19 +35,6 @@ void	rowsandcols(t_mymlx *mymlx)
 	mymlx->map.num_col = ft_strlen(mymlx->map.splited[0]);
 }
 
-void	get_and_join(t_mymlx *mymlx, int fd)
-{
-	mymlx->map.map1 = (char *)malloc(1 * sizeof(char));
-	mymlx->map.map_str = get_next_line(fd);
-	while (1)
-	{
-		mymlx->map.map1 = ft_strjoinget(mymlx->map.map1, mymlx->map.map_str);
-		mymlx->map.map_line_counter++;
-		mymlx->map.map_str = get_next_line(fd);
-		if (mymlx->map.map_str == NULL)
-			break ;
-	}
-}
 
 void	permetre(t_mymlx *mymlx)
 {
@@ -73,7 +72,7 @@ void	check_num_col(t_mymlx *mymlx)
 	{
 		if (mymlx->map.num_col != len(mymlx->map.splited[i]))
 		{
-			printf("error check the map colums !\n");
+			printf("error check the map lines !\n");
 			exit(0);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 19:46:45 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/17 06:54:29 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ typedef struct s_mymlx
 }				t_mymlx;
 
 void			permetre(t_mymlx *mymlx);
-void			errortext(int error);
 void			openber(int fd);
 void			berber(char *str);
 void			projec(int x, int y, t_mymlx *mymlx);
@@ -100,14 +99,11 @@ void			press_escap(t_mymlx *mymlx);
 void			rassam(int i, int j, void *image, t_mymlx *mymlx);
 void			coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
 void			line_count(t_mymlx *mymlx);
-void			is_valid_move(char **map, t_mymlx *mymlx);
 void			player_position(char **splited, int path_x, int path_y,
 					t_mymlx *mymlx);
 void			big_path_if(char **splited, int pathx, int pathy,
 					t_mymlx *mymlx);
 void			drawingxpsuite(char **splited, int i, int j, t_mymlx *mymlx);
-void			coin_checker(t_mymlx *mymlx);
-void			diffcoin(t_mymlx *mymlx);
 void			checker(t_mymlx *mymlx);
 void			findexit(char **splited, t_mymlx *mymlx);
 void			coin_counter(int i, int j, char **splited, t_mymlx *mymlx);
@@ -118,6 +114,6 @@ void			allerror(t_mymlx *mymlx);
 void			line_errors(t_mymlx *mymlx);
 void			inputter(int j, int k, t_mymlx *mymlx);
 void			rowsandcols(t_mymlx *mymlx);
-void			false_arg(void);
 void			get_and_join(t_mymlx *mymlx, int fd);
+ void				freee(t_mymlx *mymlx);
 #endif
