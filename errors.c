@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/17 05:05:01 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 01:03:26 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,41 @@ void	openber(int fd)
 	}
 }
 
-void	line_errors(t_mymlx *mymlx)
+void	N_line_errors(t_mymlx *mymlx)
 {
 	if (!mymlx->map.map_str)
 	{
-		printf("error map is empty\n");
+		printf("map is empty\n");
 		exit(0);
 	}
 	if (mymlx->map.map_str[0] == '\n')
 	{
-		printf("error too many newline \n");
+		printf("empty lines in map \n");
 		exit(0);
+	}
+}
+
+void	line_count(t_mymlx *mymlx)
+{
+	if (mymlx->map.map_line_counter != mymlx->map.num_rows)
+	{
+		printf("error the map rows element are not correct \n");
+		exit(0);
+	}
+}
+
+void	check_num_col(t_mymlx *mymlx)
+{
+	int	i;
+
+	i = 0;
+	while (i < mymlx->map.num_rows)
+	{
+		if (mymlx->map.num_col != len(mymlx->map.splited[i]))
+		{
+			printf("error the map col element are not correct !\n");
+			exit(0);
+		}
+		i++;
 	}
 }

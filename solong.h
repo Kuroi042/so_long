@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/17 06:54:29 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 01:56:57 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,10 @@ void			check_num_col(t_mymlx *mymlx);
 int				len(char *str);
 void			mlx(t_mymlx *mymlx);
 void			allerror(t_mymlx *mymlx);
-void			line_errors(t_mymlx *mymlx);
+void			N_line_errors(t_mymlx *mymlx);
 void			inputter(int j, int k, t_mymlx *mymlx);
 void			rowsandcols(t_mymlx *mymlx);
 void			get_and_join(t_mymlx *mymlx, int fd);
- void				freee(t_mymlx *mymlx);
+void	coin_checker_path(char **splited, t_mymlx *mymlx);
+void				freee(t_mymlx *mymlx);
 #endif

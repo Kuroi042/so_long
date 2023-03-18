@@ -6,13 +6,13 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:31:07 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:13:16 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 01:54:19 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 // count the coin after and befor flood
-void	coincounter(char **splited, t_mymlx *mymlx)
+void	coin_checker_path(char **splited, t_mymlx *mymlx)
 {
 	int	i;
 	int	j;
@@ -95,7 +95,7 @@ void	checker(t_mymlx *mymlx)
 	int	k;
 	int	m;
 
-	coincounter(mymlx->map.maptester, mymlx);
+	coin_checker_path(mymlx->map.maptester, mymlx);
 	k = mymlx->path_coin;
 	g = 0;
 	while (g != mymlx->map.num_col)
@@ -103,7 +103,7 @@ void	checker(t_mymlx *mymlx)
 		player_position(mymlx->map.maptester, mymlx->m, mymlx->n, mymlx);
 		g++;
 	}
-	coincounter(mymlx->map.maptester, mymlx);
+	coin_checker_path(mymlx->map.maptester, mymlx);
 	m = mymlx->path_coin;
 	if (k != m)
 	{

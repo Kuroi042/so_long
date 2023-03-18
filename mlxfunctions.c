@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 06:11:14 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/17 06:50:31 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 00:06:05 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ void	mlx(t_mymlx *mymlx)
 	drawingxpm(mymlx->i, mymlx->j, mymlx->map.splited, mymlx);
 	mlx_hook(mymlx->mlx_win, 17, 0, pressex, mymlx);
 	mlx_key_hook(mymlx->mlx_win, key_press, mymlx);
-	freee(mymlx);
 	mlx_loop(mymlx->mlx);
 }
