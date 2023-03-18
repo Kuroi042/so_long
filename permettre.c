@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 01:36:58 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/19 00:56:23 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	get_and_join(t_mymlx *mymlx, int fd)
 	{
 		mymlx->map.map1 = ft_strjoinget(mymlx->map.map1, mymlx->map.map_str);
 		mymlx->map.map_line_counter++;
-		printf("%d\n",mymlx->map.map_line_counter);
 		mymlx->map.map_str = get_next_line(fd);
 		if (mymlx->map.map_str == NULL)
 			break ;
@@ -34,7 +33,18 @@ void	rowsandcols(t_mymlx *mymlx)
 		mymlx->map.num_rows++;
 	}
 	mymlx->map.num_col = len(mymlx->map.splited[0]);
+
+	int i =0;
+	int j=0;
+	while(i<mymlx->map.num_rows){
+		while(j < mymlx->map.num_col){
+				free(mymlx->map.splited[0]);
+				j++;
+		}
+		i++;
+	}
 }
+
 
 
 void	permetre(t_mymlx *mymlx)
@@ -59,7 +69,7 @@ void	permetre(t_mymlx *mymlx)
 	if (mymlx->map.check_tool_up != 0 || mymlx->map.check_tool_teht != 0
 		|| mymlx->map.check_side_left != 0 || mymlx->map.check_side_right != 0)
 	{
-		printf("error map check the map 'wall' perimettre\n");
+		ft_printf("error map check the map 'wall' perimettre\n");
 		exit(0);
 	}
 }

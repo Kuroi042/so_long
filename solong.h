@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 01:56:57 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 05:22:12 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 # define SOLONG_H
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
+#include "ft_printf/ft_printf.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdarg.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

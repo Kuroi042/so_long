@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:33:20 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 16:48:09 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 05:18:03 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	press_w(t_mymlx *mymlx)
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
 			mymlx->map.splited, mymlx);
-		printf("khatawat : %d\n", mymlx->player.pas);
+		ft_printf("khatawat : %d\n", mymlx->player.pas);
 	}
 }
 
@@ -63,7 +63,7 @@ void	press_s(t_mymlx *mymlx)
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
 			mymlx->map.splited, mymlx);
-		printf("khatawat : %d\n", mymlx->player.pas);
+		ft_printf("khatawat : %d\n", mymlx->player.pas);
 	}
 }
 
@@ -83,7 +83,7 @@ void	press_a(t_mymlx *mymlx)
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
 			mymlx->map.splited, mymlx);
-		printf("khatawat : %d\n", mymlx->player.pas);
+		ft_printf("khatawat : %d\n", mymlx->player.pas);
 	}
 }
 
@@ -103,6 +103,6 @@ void	press_d(t_mymlx *mymlx)
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
 			mymlx->map.splited, mymlx);
-		printf("khatawat : %d\n", mymlx->player.pas);
+		ft_printf("khatawat : %d\n", mymlx->player.pas);
 	}
 }

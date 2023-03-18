@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:31:07 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 01:54:19 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/18 05:29:26 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,13 @@ void	checker(t_mymlx *mymlx)
 	m = mymlx->path_coin;
 	if (k != m)
 	{
-		printf("map is invalid\n");
+		ft_printf("map is invalid\n");
 		exit(0);
 	}
 	findexit(mymlx->map.maptester, mymlx);
 	if (mymlx->exitfound == -1)
 	{
-		printf("map is invalid\n");
+		ft_printf("map is invalid\n");
 		exit(0);
 	}
 }
