@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:31:50 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/17 06:54:02 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:18:29 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,10 @@ void	drawingxpsuite(char **splited, int i, int j, t_mymlx *mymlx)
 
 void	rassam(int i, int j, void *image, t_mymlx *mymlx)
 {
-	if (mymlx->map.splited[i][j] == 'E' && mymlx->coin_yes == 1)
+	if (mymlx->map.splited[i][j] == 'E' && mymlx->coin_yes == 1){
+		thedestroyer(mymlx);
 		exit(0);
+	}
 	else
 		mlx_put_image_to_window(mymlx->mlx, mymlx->mlx_win, image, j * 32, i
 			* 32);

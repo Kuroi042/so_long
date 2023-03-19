@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/19 00:56:23 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:01:01 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	get_and_join(t_mymlx *mymlx, int fd)
 	while (1)
 	{
 		mymlx->map.map1 = ft_strjoinget(mymlx->map.map1, mymlx->map.map_str);
+		free(mymlx->map.map_str);
 		mymlx->map.map_line_counter++;
 		mymlx->map.map_str = get_next_line(fd);
 		if (mymlx->map.map_str == NULL)
@@ -34,16 +35,14 @@ void	rowsandcols(t_mymlx *mymlx)
 	}
 	mymlx->map.num_col = len(mymlx->map.splited[0]);
 
-	int i =0;
-	int j=0;
-	while(i<mymlx->map.num_rows){
-		while(j < mymlx->map.num_col){
-				free(mymlx->map.splited[0]);
-				j++;
-		}
-		i++;
-	}
+
+
+// while ( i <mymlx->map.num_rows ) {
+    // free(mymlx->map.splited[1]);
+//  free(mymlx->map.splited);
 }
+// free(mymlx->map.splited);
+ 
 
 
 

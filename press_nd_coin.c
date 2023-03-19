@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coincounter.c                                      :+:      :+:    :+:   */
+/*   press_nd_coin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:38:30 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/16 17:35:39 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/19 22:17:46 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,18 @@ int	pressex(int keycode)
 	keycode = 17;
 	exit(0);
 	return (0);
+}
+
+void thedestroyer(t_mymlx *mymlx){
+
+if(mymlx->mlx_win){	
+
+mlx_destroy_image(mymlx->mlx,mymlx->wall);
+mlx_destroy_image(mymlx->mlx,mymlx->coin);
+mlx_destroy_image(mymlx->mlx,mymlx->joseph);
+mlx_destroy_image(mymlx->mlx,mymlx->exit);
+mlx_destroy_image(mymlx->mlx,mymlx->sand);
+mlx_destroy_window(mymlx->mlx, mymlx->mlx_win);
+}
+
 }
