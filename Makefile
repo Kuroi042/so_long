@@ -1,19 +1,19 @@
 NAME = Solong
 
-GNL_DIR = get_next_line
+GNL_DIR = gnl
 GNL = $(GNL_DIR)/get_next_line.a
 
-LIBFT_DIR = libft
+LIBFT_DIR = lbft
 LIBFT =  $(LIBFT_DIR)/libft.a
 
-FT_PRINTF_DIR = ft_printf
+FT_PRINTF_DIR = ftprintf
 FT_PRINTF =  $(FT_PRINTF_DIR)/ft_printf.a
 
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC_SO = map_reader.c awsd.c errors.c errors2.c mlxfunctions.c path.c permettre.c press_nd_coin.c drawing.c
+SRC_SO = map_reader.c   awsd.c errors.c errors2.c mlxfunctions.c path.c permettre.c press_nd_coin.c drawing.c
 OBJS_C = ${SRC_SO:.c=.o}
 
 FRAMEWORKS = -framework OpenGL -framework AppKit

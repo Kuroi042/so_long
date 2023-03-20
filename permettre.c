@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 17:44:48 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:37:08 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rowsandcols(t_mymlx *mymlx)
 {
 	mymlx->map.maptester = ft_split(mymlx->map.map1, '\n');
 	mymlx->map.splited = ft_split(mymlx->map.map1, '\n');
-	free(mymlx->map.map1);
+		free(mymlx->map.map1);
 	while (mymlx->map.splited[mymlx->map.num_rows] != NULL)
 	{
 		mymlx->map.num_rows++;

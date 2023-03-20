@@ -6,16 +6,16 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 15:27:52 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:42:31 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 
 # define SOLONG_H
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
-#include "ft_printf/ft_printf.h"
+# include "gnl/get_next_line.h"
+# include "lbft/libft.h"
+#include "ftprintf/ft_printf.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdarg.h>
@@ -62,7 +62,6 @@ typedef struct s_mymlx
 	void		*sand;
 	void		*coin;
 	void		*exit;
-	void		*enter;
 	int			coin_yes;
 	int			exit_x;
 	int			exit_y;
@@ -116,6 +115,7 @@ void			inputter(int j, int k, t_mymlx *mymlx);
 void			rowsandcols(t_mymlx *mymlx);
 void			get_and_join(t_mymlx *mymlx, int fd);
 void			coin_checker_path(char **splited, t_mymlx *mymlx);
+void 			check_leaks();
 void 			thedestroyer(t_mymlx *mymlx);
 void 			vree(t_mymlx *mymlx);
 #endif
