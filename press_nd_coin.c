@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:38:30 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/19 22:17:46 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:42:02 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ int	pressex(int keycode)
 }
 
 void thedestroyer(t_mymlx *mymlx){
-
 if(mymlx->mlx_win){	
-
 mlx_destroy_image(mymlx->mlx,mymlx->wall);
 mlx_destroy_image(mymlx->mlx,mymlx->coin);
 mlx_destroy_image(mymlx->mlx,mymlx->joseph);
@@ -47,5 +45,9 @@ mlx_destroy_image(mymlx->mlx,mymlx->exit);
 mlx_destroy_image(mymlx->mlx,mymlx->sand);
 mlx_destroy_window(mymlx->mlx, mymlx->mlx_win);
 }
-
 }
+void vree(t_mymlx *mymlx){
+	free(mymlx);
+	free(mymlx->map.splited);
+	free(mymlx->map.maptester);
+} 

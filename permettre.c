@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/19 22:01:01 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:44:48 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,14 @@ void	rowsandcols(t_mymlx *mymlx)
 {
 	mymlx->map.maptester = ft_split(mymlx->map.map1, '\n');
 	mymlx->map.splited = ft_split(mymlx->map.map1, '\n');
+	free(mymlx->map.map1);
 	while (mymlx->map.splited[mymlx->map.num_rows] != NULL)
 	{
 		mymlx->map.num_rows++;
 	}
 	mymlx->map.num_col = len(mymlx->map.splited[0]);
-
-
-
-// while ( i <mymlx->map.num_rows ) {
-    // free(mymlx->map.splited[1]);
-//  free(mymlx->map.splited);
 }
-// free(mymlx->map.splited);
+
  
 
 
@@ -69,7 +64,9 @@ void	permetre(t_mymlx *mymlx)
 		|| mymlx->map.check_side_left != 0 || mymlx->map.check_side_right != 0)
 	{
 		ft_printf("error map check the map 'wall' perimettre\n");
-		exit(0);
+				 vree(mymlx);
+
+		exit(1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:31:07 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 05:29:26 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:44:42 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,14 @@ void	checker(t_mymlx *mymlx)
 	if (k != m)
 	{
 		ft_printf("map is invalid\n");
-		exit(0);
+				 vree(mymlx);
+		exit(1);
 	}
 	findexit(mymlx->map.maptester, mymlx);
 	if (mymlx->exitfound == -1)
 	{
 		ft_printf("map is invalid\n");
-		exit(0);
+				 vree(mymlx);
+		exit(1);
 	}
 }

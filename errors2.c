@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 05:18:55 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:44:26 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	berber(char *str)
 	if (!ft_strnstr(str, ".ber", ft_strlen(str)))
 	{
 		ft_printf(".ber is not found\n");
-		exit(0);
+		exit(1);
 	}
 }
 
@@ -58,6 +58,7 @@ void	inputter(int j, int k, t_mymlx *mymlx)
 		|| mymlx->exitdiali != 1)
 	{
 		ft_printf("error Check 'E' 'P' 'C' in the map\n");
-		exit(0);
+				 vree(mymlx);
+		exit(1);
 	}
 }

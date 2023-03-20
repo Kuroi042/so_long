@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/19 22:05:34 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:43:52 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ void	N_line_errors(t_mymlx *mymlx)
 	if (!mymlx->map.map_str)
 	{
 		ft_printf("map is empty\n");
-		exit(0);
+		 vree(mymlx);
+		exit(1);
 	}
 	if (mymlx->map.map_str[0] == '\n')
 	{
 		ft_printf("empty lines in map \n");
-		exit(0);
+		 vree(mymlx);
+		exit(1);
 	}
 }
 
@@ -41,7 +43,9 @@ void	line_count(t_mymlx *mymlx)
 	if (mymlx->map.map_line_counter != mymlx->map.num_rows)
 	{
 		ft_printf("error the map rows element are not correct \n");
-		exit(0);
+		 vree(mymlx);
+		exit(1);
+		
 	}
 }
 
@@ -55,7 +59,9 @@ void	check_num_col(t_mymlx *mymlx)
 		if (mymlx->map.num_col != len(mymlx->map.splited[i]))
 		{
 			ft_printf("error the map col element are not correct !\n");
-			exit(0);
+			vree(mymlx);
+			exit(1);
+		
 		}
 		i++;
 	}
