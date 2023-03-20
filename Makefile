@@ -1,6 +1,6 @@
 NAME = Solong
 
-GNL_DIR = gnl
+GNL_DIR = g_nl
 GNL = $(GNL_DIR)/get_next_line.a
 
 LIBFT_DIR = lbft

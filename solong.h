@@ -6,14 +6,14 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 18:42:31 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:00:37 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 
 # define SOLONG_H
-# include "gnl/get_next_line.h"
+# include "g_nl/get_next_line.h"
 # include "lbft/libft.h"
 #include "ftprintf/ft_printf.h"
 # include <fcntl.h>
