@@ -6,16 +6,16 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:14:32 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 19:00:37 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:01:17 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
 
 # define SOLONG_H
+# include "ftprintf/ft_printf.h"
 # include "g_nl/get_next_line.h"
-# include "lbft/libft.h"
-#include "ftprintf/ft_printf.h"
+# include "libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdarg.h>
@@ -30,8 +30,12 @@ typedef struct s_player
 	int			path_y;
 	int			pas;
 }				t_player;
-typedef struct s_mymap
+
+typedef struct s_mymlx
 {
+	int			a;
+	int			b;
+	int			k;
 	int			r;
 	int			c;
 	int			map_line_counter;
@@ -44,17 +48,8 @@ typedef struct s_mymap
 	int			check_side_right;
 	char		*map1;
 	char		*map_str;
-	size_t		len_map;
-	int			counter;
-	int			e_found;
-	int			p_found;
-	int			e_kayna;
 	char		**splited;
 	char		**maptester;
-}				t_mymap;
-
-typedef struct s_mymlx
-{
 	void		*mlx;
 	void		*mlx_win;
 	void		*wall;
@@ -74,17 +69,19 @@ typedef struct s_mymlx
 	int			m;
 	int			n;
 	int			exitfound;
-	int			playerdiali;
-	int			colldiali;
-	int			exitdiali;
-	t_mymap		map;
+	int			playercollected;
+	int			collcollected;
+	int			exitcollected;
+	int			zero;
+	int			coin_before_flood;
+	int			coin_after_flood;
 	t_player	player;
 
 }				t_mymlx;
 
 void			permetre(t_mymlx *mymlx);
-void			openber(int fd);
-void			berber(char *str);
+void			openber(int fd, t_mymlx *mymlx);
+void			berber(char *str, t_mymlx *mymlx);
 void			projec(int x, int y, t_mymlx *mymlx);
 void			drawingxpm(int i, int j, char **splited, t_mymlx *mymlx);
 int				key_press(int keycode, t_mymlx *mymlx);
@@ -110,12 +107,12 @@ void			check_num_col(t_mymlx *mymlx);
 int				len(char *str);
 void			mlx(t_mymlx *mymlx);
 void			allerror(t_mymlx *mymlx);
-void			N_line_errors(t_mymlx *mymlx);
+void			new_line_errors(t_mymlx *mymlx);
 void			inputter(int j, int k, t_mymlx *mymlx);
 void			rowsandcols(t_mymlx *mymlx);
 void			get_and_join(t_mymlx *mymlx, int fd);
 void			coin_checker_path(char **splited, t_mymlx *mymlx);
-void 			check_leaks();
-void 			thedestroyer(t_mymlx *mymlx);
-void 			vree(t_mymlx *mymlx);
+void			thedestroyer(t_mymlx *mymlx);
+void			vree(t_mymlx *mymlx);
+void			mymapfree(char **map, t_mymlx *mymlx);
 #endif

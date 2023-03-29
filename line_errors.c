@@ -6,46 +6,48 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:39:22 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 18:36:50 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:37:48 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-
-void	openber(int fd)
+void	openber(int fd, t_mymlx *mymlx)
 {
 	if (fd == -1)
 	{
 		ft_printf("open error");
-		exit(0);
+		mymlx = NULL;
+		free(mymlx);
+		exit(1);
 	}
 }
 
-void	N_line_errors(t_mymlx *mymlx)
+void	new_line_errors(t_mymlx *mymlx)
 {
-	if (!mymlx->map.map_str)
+	if (!mymlx->map_str)
 	{
 		ft_printf("map is empty\n");
-		 vree(mymlx);
+		mymlx = NULL;
+		free(mymlx);
 		exit(1);
 	}
-	if (mymlx->map.map_str[0] == '\n')
+	if (mymlx->map_str[0] == '\n')
 	{
 		ft_printf("empty lines in map \n");
-		 vree(mymlx);
+		mymlx = NULL;
+		free(mymlx);
 		exit(1);
 	}
 }
 
 void	line_count(t_mymlx *mymlx)
 {
-	if (mymlx->map.map_line_counter != mymlx->map.num_rows)
+	if (mymlx->map_line_counter != mymlx->num_rows)
 	{
 		ft_printf("error the map rows element are not correct \n");
-		 vree(mymlx);
+		vree(mymlx);
 		exit(1);
-		
 	}
 }
 
@@ -54,14 +56,13 @@ void	check_num_col(t_mymlx *mymlx)
 	int	i;
 
 	i = 0;
-	while (i < mymlx->map.num_rows)
+	while (i < mymlx->num_rows)
 	{
-		if (mymlx->map.num_col != len(mymlx->map.splited[i]))
+		if (mymlx->num_col != len(mymlx->splited[i]))
 		{
 			ft_printf("error the map col element are not correct !\n");
 			vree(mymlx);
 			exit(1);
-		
 		}
 		i++;
 	}

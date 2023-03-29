@@ -6,17 +6,19 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 18:36:54 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:24:10 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
-void	berber(char *str)
+void	berber(char *str, t_mymlx *mymlx)
 {
 	if (!ft_strnstr(str, ".ber", ft_strlen(str)))
 	{
 		ft_printf(".ber is not found\n");
+		mymlx = NULL;
+		free(mymlx);
 		exit(1);
 	}
 }
@@ -37,28 +39,26 @@ void	allerror(t_mymlx *mymlx)
 
 void	inputter(int j, int k, t_mymlx *mymlx)
 {
-	j = 0;
-	k = 0;
-	while (k < mymlx->map.num_rows)
+	while (k < mymlx->num_rows)
 	{
-		while (j < mymlx->map.num_col)
+		while (j < mymlx->num_col)
 		{
-			if (mymlx->map.splited[k][j] == 'E')
-				mymlx->exitdiali++;
-			if (mymlx->map.splited[k][j] == 'P')
-				mymlx->playerdiali++;
-			if (mymlx->map.splited[k][j] == 'C')
-				mymlx->colldiali++;
+			if (mymlx->splited[k][j] == 'E')
+				mymlx->exitcollected++;
+			if (mymlx->splited[k][j] == 'P')
+				mymlx->playercollected++;
+			if (mymlx->splited[k][j] == 'C')
+				mymlx->collcollected++;
 			j++;
 		}
 		j = 0;
 		k++;
 	}
-	if (mymlx->colldiali == 0 || mymlx->playerdiali != 1
-		|| mymlx->exitdiali != 1)
+	if (mymlx->collcollected == 0 || mymlx->playercollected != 1
+		|| mymlx->exitcollected != 1)
 	{
 		ft_printf("error Check 'E' 'P' 'C' in the map\n");
-				 vree(mymlx);
+		vree(mymlx);
 		exit(1);
 	}
 }

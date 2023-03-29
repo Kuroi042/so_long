@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 00:33:20 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/18 05:18:03 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:56:18 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	key_press(int keycode, t_mymlx *mymlx)
 
 void	press_w(t_mymlx *mymlx)
 {
-	if (mymlx->map.splited[mymlx->player.player_x
+	if (mymlx->splited[mymlx->player.player_x
 			- 1][mymlx->player.player_y] != '1')
 	{
 		rassam(mymlx->player.player_x - 1, mymlx->player.player_y, mymlx->sand,
@@ -42,14 +42,14 @@ void	press_w(t_mymlx *mymlx)
 		mymlx->player.pas++;
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
-			mymlx->map.splited, mymlx);
-		ft_printf("khatawat : %d\n", mymlx->player.pas);
+			mymlx->splited, mymlx);
+		ft_printf("khotwa : +%d\n", mymlx->player.pas);
 	}
 }
 
 void	press_s(t_mymlx *mymlx)
 {
-	if (mymlx->map.splited[mymlx->player.player_x
+	if (mymlx->splited[mymlx->player.player_x
 			+ 1][mymlx->player.player_y] != '1')
 	{
 		rassam(mymlx->player.player_x + 1, mymlx->player.player_y, mymlx->sand,
@@ -62,14 +62,14 @@ void	press_s(t_mymlx *mymlx)
 		mymlx->player.pas++;
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
-			mymlx->map.splited, mymlx);
-		ft_printf("khatawat : %d\n", mymlx->player.pas);
+			mymlx->splited, mymlx);
+		ft_printf("khotwa: +%d\n", mymlx->player.pas);
 	}
 }
 
 void	press_a(t_mymlx *mymlx)
 {
-	if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y
+	if (mymlx->splited[mymlx->player.player_x][mymlx->player.player_y
 		- 1] != '1')
 	{
 		rassam(mymlx->player.player_x, mymlx->player.player_y - 1, mymlx->sand,
@@ -82,14 +82,14 @@ void	press_a(t_mymlx *mymlx)
 		mymlx->player.pas++;
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
-			mymlx->map.splited, mymlx);
-		ft_printf("khatawat : %d\n", mymlx->player.pas);
+			mymlx->splited, mymlx);
+		ft_printf("khotwa : +%d\n", mymlx->player.pas);
 	}
 }
 
 void	press_d(t_mymlx *mymlx)
 {
-	if (mymlx->map.splited[mymlx->player.player_x][mymlx->player.player_y
+	if (mymlx->splited[mymlx->player.player_x][mymlx->player.player_y
 		+ 1] != '1')
 	{
 		rassam(mymlx->player.player_x, mymlx->player.player_y + 1, mymlx->sand,
@@ -102,7 +102,7 @@ void	press_d(t_mymlx *mymlx)
 		mymlx->player.pas++;
 		printexit(mymlx);
 		coin_counter(mymlx->player.player_x, mymlx->player.player_y,
-			mymlx->map.splited, mymlx);
-		ft_printf("khatawat : %d\n", mymlx->player.pas);
+			mymlx->splited, mymlx);
+		ft_printf("khotwa : +%d\n", mymlx->player.pas);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 06:11:14 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/19 23:03:33 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:24:25 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	mlx(t_mymlx *mymlx)
 {
 	mymlx->mlx = mlx_init();
-	mymlx->mlx_win = mlx_new_window(mymlx->mlx, mymlx->map.num_col * 32,
-			mymlx->map.num_rows * 32, "3ayn dahrek");
+	mymlx->mlx_win = mlx_new_window(mymlx->mlx, mymlx->num_col * 32,
+			mymlx->num_rows * 32, "3ayn dahrek");
 	projec(mymlx->m, mymlx->n, mymlx);
-	drawingxpm(mymlx->i, mymlx->j, mymlx->map.splited, mymlx);
+	drawingxpm(mymlx->i, mymlx->j, mymlx->splited, mymlx);
 	mlx_hook(mymlx->mlx_win, 17, 0, pressex, mymlx);
 	mlx_key_hook(mymlx->mlx_win, key_press, mymlx);
 	mlx_loop(mymlx->mlx);

@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 01:31:07 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/20 18:37:03 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:21:14 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	coin_checker_path(char **splited, t_mymlx *mymlx)
 	int	j;
 
 	i = 0;
-	while (i < mymlx->map.num_rows)
+	while (i < mymlx->num_rows)
 	{
 		j = 0;
-		while (j < mymlx->map.num_col)
+		while (j < mymlx->num_col)
 		{
 			if (splited[i][j] == 'C')
 				mymlx->path_coin++;
@@ -37,10 +37,10 @@ void	findexit(char **splited, t_mymlx *mymlx)
 	int	j;
 
 	i = 0;
-	while (i < mymlx->map.num_rows)
+	while (i < mymlx->num_rows)
 	{
 		j = 0;
-		while (j < mymlx->map.num_col)
+		while (j < mymlx->num_col)
 		{
 			if (splited[i][j] == 'E')
 				mymlx->exitfound = -1;
@@ -52,10 +52,10 @@ void	findexit(char **splited, t_mymlx *mymlx)
 
 void	player_position(char **splited, int path_x, int path_y, t_mymlx *mymlx)
 {
-	while (path_x < mymlx->map.num_rows && path_x >= 0)
+	while (path_x < mymlx->num_rows && path_x >= 0)
 	{
 		path_y = 0;
-		while (path_y < mymlx->map.num_col && path_y >= 0)
+		while (path_y < mymlx->num_col && path_y >= 0)
 		{
 			if (splited[path_x][path_y] == 'P')
 			{
@@ -74,15 +74,15 @@ void	big_path_if(char **splited, int pathx, int pathy, t_mymlx *mymlx)
 		if ((pathx >= 0 && splited[pathx - 1][pathy] == '0') || splited[pathx
 			- 1][pathy] == 'C' || splited[pathx - 1][pathy] == 'E')
 			splited[pathx - 1][pathy] = 'P';
-		if ((pathx < mymlx->map.num_rows - 1 && splited[pathx
-					+ 1][pathy] == '0') || splited[pathx + 1][pathy] == 'C'
-			|| splited[pathx + 1][pathy] == 'E')
+		if ((pathx < mymlx->num_rows - 1 && splited[pathx + 1][pathy] == '0')
+			|| splited[pathx + 1][pathy] == 'C' || splited[pathx
+			+ 1][pathy] == 'E')
 			splited[pathx + 1][pathy] = 'P';
 		if ((pathy >= 0 && splited[pathx][pathy - 1] == '0')
 			|| splited[pathx][pathy - 1] == 'C' || splited[pathx][pathy
 			- 1] == 'C' || splited[pathx][pathy - 1] == 'E')
 			splited[pathx][pathy - 1] = 'P';
-		if ((pathy < mymlx->map.num_col - 1 && splited[pathx][pathy + 1] == '0')
+		if ((pathy < mymlx->num_col - 1 && splited[pathx][pathy + 1] == '0')
 			|| splited[pathx][pathy + 1] == 'C' || splited[pathx][pathy
 			+ 1] == 'E')
 			splited[pathx][pathy + 1] = 'P';
@@ -91,31 +91,27 @@ void	big_path_if(char **splited, int pathx, int pathy, t_mymlx *mymlx)
 
 void	checker(t_mymlx *mymlx)
 {
-	int	g;
-	int	k;
-	int	m;
-
-	coin_checker_path(mymlx->map.maptester, mymlx);
-	k = mymlx->path_coin;
-	g = 0;
-	while (g != mymlx->map.num_col)
+	coin_checker_path(mymlx->maptester, mymlx);
+	mymlx->coin_before_flood = mymlx->path_coin;
+	mymlx->zero = 0;
+	while (mymlx->zero != mymlx->num_col)
 	{
-		player_position(mymlx->map.maptester, mymlx->m, mymlx->n, mymlx);
-		g++;
+		player_position(mymlx->maptester, mymlx->m, mymlx->n, mymlx);
+		mymlx->zero++;
 	}
-	coin_checker_path(mymlx->map.maptester, mymlx);
-	m = mymlx->path_coin;
-	if (k != m)
+	coin_checker_path(mymlx->maptester, mymlx);
+	mymlx->coin_after_flood = mymlx->path_coin;
+	if (mymlx->coin_before_flood != mymlx->coin_after_flood)
 	{
 		ft_printf("map is invalid\n");
-				 vree(mymlx);
+		vree(mymlx);
 		exit(1);
 	}
-	findexit(mymlx->map.maptester, mymlx);
+	findexit(mymlx->maptester, mymlx);
 	if (mymlx->exitfound == -1)
 	{
 		ft_printf("map is invalid\n");
-				 vree(mymlx);
+		vree(mymlx);
 		exit(1);
 	}
 }
