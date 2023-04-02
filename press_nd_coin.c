@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 16:38:30 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/29 02:39:09 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/04/02 00:52:05 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 void	press_escap(t_mymlx *mymlx)
 {
-	mlx_destroy_window(mymlx->mlx, mymlx->mlx_win);
+	thedestroyer(mymlx);
 	vree(mymlx);
 	exit(0);
 }
 
-int	pressex(int keycode)
+int	pressex(t_mymlx *mymlx)
 {
-	keycode = 17;
-	return (0);
+ thedestroyer(mymlx);
+vree(mymlx);
+exit(0);
+return 0;
 }
 
 void	thedestroyer(t_mymlx *mymlx)

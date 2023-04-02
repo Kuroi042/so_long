@@ -1,34 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   permettre.c                                        :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:13 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/29 02:21:57 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/04/01 23:02:12 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
 void	get_and_join(t_mymlx *mymlx, int fd)
-{
-	while (1)
+{	
+	int zeb = 0;
+	mymlx->map1 = (char *)malloc(sizeof(char) * 500000);
+	mymlx->reader =  read(fd, mymlx->map1, 500000);
+	if (mymlx->reader== 0)
 	{
-		if (mymlx->map_str == NULL)
-			break ;
-		mymlx->map1 = ft_strjoinget(mymlx->map1, mymlx->map_str);
-		free(mymlx->map_str);
-		mymlx->map_line_counter++;
-		mymlx->map_str = get_next_line(fd);
+		ft_printf("map is empty\n");
+		free(mymlx->map1);
+		free(mymlx);
+		exit(1);
 	}
+		
+	mymlx->map_line_counter++;
+	while (mymlx->map1[zeb])
+	{
+		if (mymlx->map1[zeb] == '\n')
+			mymlx->map_line_counter++;
+		if (mymlx->map1[zeb] == '\n' && mymlx->map1[zeb + 1] == '\n'){
+			ft_printf("ZEB ERROR\n");
+			free(mymlx->map1);
+			free(mymlx);
+			exit(1);	
+		}
+		zeb++;
+	}	
 }
 
 void	rowsandcols(t_mymlx *mymlx)
 {
 	mymlx->maptester = ft_split(mymlx->map1, '\n');
 	mymlx->splited = ft_split(mymlx->map1, '\n');
+		free(mymlx->map1);
+
 	while (mymlx->splited[mymlx->num_rows] != NULL)
 	{
 		mymlx->num_rows++;

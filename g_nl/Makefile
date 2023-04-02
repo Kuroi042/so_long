@@ -7,6 +7,7 @@ RM = rm -rf
 SRC = get_next_line.c get_next_line_utils.c
 OBJ = $(SRC:.c=.o)
 
+.SILENT:
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -20,5 +21,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean re

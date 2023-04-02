@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors2.c                                          :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:56:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/03/29 02:24:10 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:41:08 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	allerror(t_mymlx *mymlx)
 
 	i = 0;
 	j = 0;
-	line_count(mymlx);
+	
 	check_num_col(mymlx);
 	inputter(i, j, mymlx);
 	permetre(mymlx);
@@ -59,6 +59,5 @@ void	inputter(int j, int k, t_mymlx *mymlx)
 	{
 		ft_printf("error Check 'E' 'P' 'C' in the map\n");
 		vree(mymlx);
-		exit(1);
 	}
 }
