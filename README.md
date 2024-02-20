@@ -1,4 +1,7 @@
-#42 So_Long Project
+# 42 So_Long Project
+
+![image](https://github.com/MedCharaf/so_long/assets/26288711/05adfb92-8f08-4317-b463-aa1422a2932f)
+
 This project is part of the curriculum at 42, where students are tasked with implementing a simple 2D game called "So Long" using the MiniLibX library. The goal of the project is to create a basic game that includes player movement, collectible items, and basic interaction with the game world.
 
 ## Project Overview
@@ -20,6 +23,6 @@ Collect all items and reach the exit door to win the game.
 Enjoy the simple yet engaging gameplay experience!
 
 ### Requirements
-MiniLibX Library: Required for graphics rendering and keyboard input handling.
+MLX Library: Required for graphics rendering and keyboard input handling.
 Compatible C compiler (e.g., GCC) and Make utility.
 
